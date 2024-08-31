@@ -1,0 +1,22 @@
+<!-- comparison_results.html -->
+<!doctype html>
+<html>
+<head>
+    <title>Comparison Results</title>
+    <style>
+        .match { color: green; }
+        .mismatch { color: red; }
+    </style>
+</head>
+<body>
+    <h1>Comparison Results for {{ bank }}</h1>
+    <ul>
+    {% for result in results %}
+        <li class="{{ 'match' if result.match else 'mismatch' }}">
+            {{ result.details }} - {{ 'Match' if result.match else 'Mismatch' }}
+        </li>
+    {% endfor %}
+    </ul>
+    <a href="{{ url_for('upload_file') }}">Upload Another Statement</a>
+</body>
+</html>
