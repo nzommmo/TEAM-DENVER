@@ -1,7 +1,19 @@
-export default function App() {
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import Home from './Components/Homepage/Home';
+import Dashboard from './Components/Dashboard/Dashboard';
+const App = () => {
   return (
-    <h1 className="text-3xl font-bold underline">
-      Hello world!
-    </h1>
+   
+    <Router>
+      <Routes>
+      <Route path="/" element={<Home/>} />
+      <Route path="/dashboard" element={<Dashboard />} />
+
+      </Routes>
+    </Router>
+   
+
   )
 }
+
+export default App
