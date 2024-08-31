@@ -3,10 +3,8 @@ import {useNavigate } from 'react-router-dom';
 
 
 const CTA = () => {
-    const navigate = useNavigate();
     const handleClick = () => {
-        navigate('/dashboard');
-      };
+        window.location.href = 'http://127.0.0.1:5000/';      };
   return (
     <div className='relative py-5'>
         <div className='mt-10 flex items-center justify-center'>

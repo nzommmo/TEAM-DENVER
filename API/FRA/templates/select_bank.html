@@ -1,0 +1,19 @@
+<!-- select_bank.html -->
+<!doctype html>
+<html>
+<head>
+    <title>Select Bank</title>
+</head>
+<body>
+    <h1>Select Bank for Uploaded Statement</h1>
+    <form method="post">
+        <select name="bank">
+            {% for bank in banks %}
+            <option value="{{ bank }}">{{ bank }}</option>
+            {% endfor %}
+        </select>
+        <input type="submit" value="Compare">
+    </form>
+</body>
+</html>
+

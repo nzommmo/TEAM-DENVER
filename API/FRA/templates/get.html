@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bank Statement Generator and Verifier</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 20px;
+            background-color: #f4f4f4;
+        }
+        .container {
+            max-width: 600px;
+            margin: auto;
+            background: white;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        h1 {
+            color: #333;
+        }
+        form {
+            margin-top: 20px;
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+        }
+        select, input[type="submit"] {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+        input[type="submit"] {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        input[type="submit"]:hover {
+            background-color: #45a049;
+        }
+        .button-container {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 20px;
+        }
+        .button {
+            padding: 10px 15px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            text-decoration: none;
+            color: white;
+            font-weight: bold;
+        }
+        .generate-button {
+            background-color: #4CAF50;
+        }
+        .verify-button {
+            background-color: #3498db;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Bank Statement Generator and Verifier</h1>
+        <form method="POST">
+            <label for="bank">Select Bank:</label>
+            <select name="bank" id="bank" required>
+                {% for bank in banks %}
+                    <option value="{{ bank }}">{{ bank }}</option>
+                {% endfor %}
+            </select>
+            
+            <label for="statement_type">Statement Type:</label>
+            <select name="statement_type" id="statement_type" required>
+                <option value="original">Original</option>
+                <option value="fake">Fake</option>
+            </select>
+            
+            <div class="button-container">
+                <input type="submit" name="generate" value="Generate Statement" class="button generate-button">
+                <a href="{{ url_for('verify_statement') }}" class="button verify-button">Verify Statement</a>
+            </div>
+        </form>
+    </div>
+</body>
+</html>
